@@ -13,18 +13,18 @@ import com.pedrorosa.course.repositories.CategoryRepository;
 public class CategoryService {
 
 	@Autowired
-	private CategoryRepository userRepository;
+	private CategoryRepository Repository;
 	
 	
 	public List<Category> findAll() {
 		
-		return userRepository.findAll();
+		return Repository.findAll();
 		
 	}
 	
 	public Category findById(Long id) {
 		
-		Optional<Category> obj = userRepository.findById(id);
+		Optional<Category> obj = Repository.findById(id);
 		return obj.get();
 		
 	}

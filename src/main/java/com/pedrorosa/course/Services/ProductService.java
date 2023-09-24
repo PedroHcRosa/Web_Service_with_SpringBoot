@@ -6,25 +6,25 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pedrorosa.course.entities.User;
-import com.pedrorosa.course.repositories.UserRepository;
+import com.pedrorosa.course.entities.Product;
+import com.pedrorosa.course.repositories.ProductRepository;
 
 @Service
-public class UserService {
+public class ProductService {
 
 	@Autowired
-	private UserRepository Repository;
+	private ProductRepository Repository;
 	
 	
-	public List<User> findAll() {
+	public List<Product> findAll() {
 		
 		return Repository.findAll();
 		
 	}
 	
-	public User findById(Long id) {
+	public Product findById(Long id) {
 		
-		Optional<User> obj = Repository.findById(id);
+		Optional<Product> obj = Repository.findById(id);
 		return obj.get();
 		
 	}

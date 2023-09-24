@@ -13,18 +13,18 @@ import com.pedrorosa.course.repositories.OrderRepository;
 public class OrderService {
 
 	@Autowired
-	private OrderRepository orderRepository;
+	private OrderRepository Repository;
 	
 	
 	public List<Order> findAll() {
 		
-		return orderRepository.findAll();
+		return Repository.findAll();
 		
 	}
 	
 	public Order findById(Long id) {
 		
-		Optional<Order> obj = orderRepository.findById(id);
+		Optional<Order> obj = Repository.findById(id);
 		return obj.get();
 		
 	}
