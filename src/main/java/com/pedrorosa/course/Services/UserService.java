@@ -28,4 +28,10 @@ public class UserService {
 		return obj.get();
 		
 	}
+	
+	public User insert(User obj) {
+		
+		return Repository.save(obj);
+		
+	}
 }
