@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.pedrorosa.course.entities.Category;
 import com.pedrorosa.course.entities.Order;
 import com.pedrorosa.course.entities.OrderItem;
+import com.pedrorosa.course.entities.Payments;
 import com.pedrorosa.course.entities.Product;
 import com.pedrorosa.course.entities.User;
 import com.pedrorosa.course.enums.OrderStatus;
@@ -82,7 +83,10 @@ public class TestConfig implements CommandLineRunner {
 		
 		orderItemrepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
 		
+		Payments pay1 = new Payments(null, Instant.parse("2019-06-20T21:53:07Z"), o1 );
+		o1.setPay(pay1);
 		
+		orderRepository.save(o1);
 	}
 	
 	
