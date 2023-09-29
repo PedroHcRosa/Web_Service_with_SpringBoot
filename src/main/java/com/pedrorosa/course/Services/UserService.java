@@ -13,6 +13,8 @@ import com.pedrorosa.course.Services.exeception.ResourceNotFoundException;
 import com.pedrorosa.course.entities.User;
 import com.pedrorosa.course.repositories.UserRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class UserService {
 
@@ -55,10 +57,15 @@ public class UserService {
 	
 	
 	public User update(Long id, User obj) {
-		
-		User entity = Repository.getReferenceById(id);
-		updateData(entity, obj);
-		return Repository.save(entity);
+		try {
+			User entity = Repository.getReferenceById(id);
+			updateData(entity, obj);
+			return Repository.save(entity);
+		} catch(EntityNotFoundException e) {
+			
+			throw new ResourceNotFoundException(id);
+			
+		}
 		
 	}
 
